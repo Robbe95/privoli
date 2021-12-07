@@ -11,6 +11,7 @@
     "development": "vite build --mode development"
   },
   "dependencies": {
+    "@types/offscreencanvas": "^2019.6.4",
     "@vueuse/core": "^7.1.2",
     "axios": "^0.24.0",
     "gsap": "^3.8.0",
