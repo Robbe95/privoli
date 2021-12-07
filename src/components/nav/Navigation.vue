@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class=" absolute w-2000px h-2000px -right-1200px -top-1100px bg-secondary rounded-full -z-10" />
+    <div class=" absolute w-2000px h-2000px -right-1200px -top-1000px bg-secondary rounded-full -z-10" />
 
     <nav class="text-right text-5xl  font-bold text-primary flex flex-col gap-10 justify-end">
       <div class="z-10">
