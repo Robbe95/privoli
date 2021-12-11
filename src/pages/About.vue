@@ -102,29 +102,31 @@ const gotoPerson = () => {
   gsap.to(window, { duration: 1, scrollTo: { y: '.person-box', offsetY: 0 } })
 }
 
+const isMobile = ref(false)
 onMounted(() => {
-})
-onMounted(() => {
-  const personTl = gsap.timeline({
+  window.innerWidth < 1024 ? isMobile.value = true : isMobile.value = false
+  if (!isMobile.value) {
+    const personTl = gsap.timeline({
     // yes, we can add it to an entire timeline!
-    scrollTrigger: {
-      trigger: '.person-box',
-      start: 'center center+=300',
-      end: 'center center+=300',
-      ease: 'none',
-    },
-  })
+      scrollTrigger: {
+        trigger: '.person-box',
+        start: 'center center+=300',
+        end: 'center center+=300',
+        ease: 'none',
+      },
+    })
 
-  personTl.from('.person', {
-    y: 100,
-    opacity: 0,
-    stagger: { // wrap advanced options in an object
-      each: 0.1,
-      from: 'start',
-      grid: 'auto',
-      ease: 'power2.inOut',
-    },
-  })
+    personTl.from('.person', {
+      y: 100,
+      opacity: 0,
+      stagger: { // wrap advanced options in an object
+        each: 0.1,
+        from: 'start',
+        grid: 'auto',
+        ease: 'power2.inOut',
+      },
+    })
+  }
 })
 
 </script>

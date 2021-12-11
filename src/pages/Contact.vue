@@ -1,18 +1,18 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="!isSend" class="min-w-screen min-h-screen flex items-center justify-center px-10 md:px-20 xl:px-40 overflow-hidden z-40">
-        <div class="bg-primary/10 p-10 rounded-xl">
+      <div v-if="!isSend" class="min-w-screen min-h-screen flex items-center justify-center md:px-20 xl:px-40 overflow-hidden z-40">
+        <div class="bg-primary/10 p-6 lg:p-10 rounded-xl lg: w-auto w-full">
           <div class="flex flex-col">
             <h1 class="text-black text-2xl font-bold mb-2">
               Contact
             </h1>
-            <div class="grid grid-cols-2 gap-4 min-w-2xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:min-w-2xl">
               <input v-model="firstName" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl" placeholder="Voornaam">
               <input v-model="lastName" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl" placeholder="Achternaam">
-              <input v-model="email" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl w-full col-span-2" placeholder="Email">
-              <textarea v-model="message" class="bg-white px-4 py-2 shadow-secondary shadow-xl rounded-xl w-full min-h-40 col-span-2" placeholder="Bericht..." />
-              <div class="w-full flex justify-end col-span-2">
+              <input v-model="email" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl w-full lg:col-span-2" placeholder="Email">
+              <textarea v-model="message" class="bg-white px-4 py-2 shadow-secondary shadow-xl rounded-xl w-full min-h-40 lg:col-span-2" placeholder="Bericht..." />
+              <div class="w-full flex justify-end lg:col-span-2">
                 <button class="btn btn-primary transition relative " :class="[!disabled ? 'opacity-100' : 'opacity-20 cursor-not-allowed']" :disabled="formLoading || disabled" @click="sendForm">
                   <div :class="{'opacity-0' : formLoading}">
                     Verstuur

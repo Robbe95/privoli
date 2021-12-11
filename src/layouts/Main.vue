@@ -5,7 +5,7 @@
     <Navigation />
 
     <router-view />
-    <div class=" px-10  md:px-20 xl:px-40 h-20 flex flex-row gap-4 mb-10 justify-end">
+    <div class=" px-10  md:px-20 xl:px-40 h-20 flex flex-row gap-4 mb-10 justify-center lg:justify-end">
       <img src="@/assets/images/logos/vlajo.png" alt="" class="h-full">
       <img src="@/assets/images/logos/hasselt.png" alt="" class="h-40 -mt-10">
     </div>

@@ -45,11 +45,11 @@
         </div>
       </div>
     </div>
-    <div class="fixed right-40 top-1/2 transform -translate-y-1/2 z-30 transition">
+    <div class="fixed right-40 top-1/2 transform -translate-y-1/2 z-30 transition" :class="[shown ? 'pointer-events-auto' : ' pointer-events-none']">
       <div>
         <div class="-top-1200px -right-1500px absolute w-2000px h-2000px bg-secondary rounded-full -z-10 transform transition" :class="[shown ? 'scale-100' : 'scale-0']" />
 
-        <nav class="text-right text-5xl  font-bold text-primary flex flex-col gap-10 justify-end transition" :class="[shown ? 'opacity-100' : 'opacity-0']">
+        <nav class="text-right text-5xl  font-bold text-primary flex flex-col gap-10 justify-end transition" :class="[shown ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none']">
           <div class="z-10">
             <div class="hover:(text-white) transition duration-400" :class="{'text-white': route.path === '/' && !productHighlighted}" @click="changeRoute('/')">
               Home

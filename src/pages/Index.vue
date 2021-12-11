@@ -6,7 +6,7 @@
         <img
           class="flex-none hover:scale-110 transform transition cursor-pointer"
           src="@/assets/images/logo.png"
-          @click="gotoProduct"
+          @click="changeRoute('/game')"
         >
       </div>
       <button class="btn btn-primary mt-20 px-20 py-2 text-xl transition" @click="changeRoute('/preorder')">
@@ -75,7 +75,9 @@ const changeRoute = (url) => {
     }, 600)
   }
 }
+const isMobile = ref(false)
 onMounted(() => {
+  window.innerWidth < 1024 ? isMobile.value = true : isMobile.value = false
   const productInfoTl = gsap.timeline({
     // yes, we can add it to an entire timeline!
     scrollTrigger: {

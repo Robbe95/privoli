@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center flex-col">
     <div ref="pixiRender" class="absolute top-0 left-0 w-100vw h-screen" />
     <img ref="image" src="@/assets/images/thumbsup.png" class="h-20 opacity-0">
-    <div>
+    <div class="font-bold">
       Score: {{ score }}
     </div>
   </div>

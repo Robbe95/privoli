@@ -7,7 +7,7 @@ export default defineConfig({
   theme: {
     extend: {
       outline: {
-        primary: '2px solid #FEA81E',
+        primary: '2px solid #b6c5b8',
       },
       animation: ['hover', 'group-hover'],
       boxShadow: {
