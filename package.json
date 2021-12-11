@@ -13,6 +13,7 @@
   "dependencies": {
     "@types/offscreencanvas": "^2019.6.4",
     "@vueuse/core": "^7.1.2",
+    "@vueuse/motion": "^2.0.0-beta.4",
     "axios": "^0.24.0",
     "gsap": "^3.8.0",
     "pinia": "^2.0.6",

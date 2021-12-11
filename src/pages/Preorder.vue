@@ -1,21 +1,24 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="!isSend" class="min-w-screen min-h-screen flex items-center justify-center px-10 md:px-20 xl:px-40 overflow-hidden z-40">
+      <div v-if="!isSend" class="min-w-screen min-h-screen flex flex-col items-center justify-center px-10 md:px-20 xl:px-40 overflow-hidden z-40">
+        <img
+          class="flex-none hover:scale-110 transform transition cursor-pointer -mt-80 h-80 mb-10"
+          src="@/assets/images/logo.png"
+        >
         <div class="bg-primary/10 p-10 rounded-xl">
           <div class="flex flex-col">
             <h1 class="text-black text-2xl font-bold mb-2">
-              Contact
+              Pre-order
             </h1>
             <div class="grid grid-cols-2 gap-4 min-w-2xl">
               <input v-model="firstName" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl" placeholder="Voornaam">
               <input v-model="lastName" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl" placeholder="Achternaam">
               <input v-model="email" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl w-full col-span-2" placeholder="Email">
-              <textarea v-model="message" class="bg-white px-4 py-2 shadow-secondary shadow-xl rounded-xl w-full min-h-40 col-span-2" placeholder="Bericht..." />
               <div class="w-full flex justify-end col-span-2">
                 <button class="btn btn-primary transition relative " :class="[!disabled ? 'opacity-100' : 'opacity-20 cursor-not-allowed']" :disabled="formLoading || disabled" @click="sendForm">
                   <div :class="{'opacity-0' : formLoading}">
-                    Verstuur
+                    Pre-order
                   </div>
                   <div
                     :class="[formLoading ? 'opacity-100' : 'opacity-0']"
@@ -55,7 +58,7 @@
           </div>
         </div>
         <div class="text-black mt-50 font-bold">
-          Je bericht is verstuurd!
+          We nemen contact met u op voor verdere informatie!
         </div>
       </div>
     </transition>
@@ -63,31 +66,28 @@
 </template>
 
 <script setup>
-import axios from 'axios'
 const isSend = ref(false)
 const firstName = ref('')
 const lastName = ref('')
 const email = ref('')
-const message = ref('')
 const disabled = computed(() => {
-  return !(firstName.value && lastName.value && email.value && message.value)
+  return !(firstName.value && lastName.value && email.value)
 })
-const formLoading = ref(false)
 
+const formLoading = ref(false)
 const sendForm = async() => {
   formLoading.value = true
   const templateParams = {
     firstName: firstName.value,
     lastName: lastName.value,
     email: email.value,
-    message: message.value,
   }
 
   axios.defaults.baseURL = 'https://api.emailjs.com/api/v1.0/'
   const response = await axios.post('/email/send',
     {
       service_id: 'privoli',
-      template_id: 'template_n75kwtr',
+      template_id: 'template_z7zt015',
       user_id: 'user_Vr5uZFMf393eBPSP0JmH0',
       template_params: templateParams,
     })
@@ -99,65 +99,9 @@ const sendForm = async() => {
       formLoading.value = false
     })
 }
-
 </script>
 
 <style scoped>
-.lds-ellipsis {
-  display: inline-block;
-  position: relative;
-  width: 40px;
-  height: 10px;
-}
-.lds-ellipsis div {
-  position: absolute;
-  top: 1px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-}
-.lds-ellipsis div:nth-child(1) {
-  left: 4px;
-  animation: lds-ellipsis1 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(2) {
-  left: 4px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(3) {
-  left: 16px;
-  animation: lds-ellipsis2 0.6s infinite;
-}
-.lds-ellipsis div:nth-child(4) {
-  left: 28px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(12px, 0);
-  }
-}
 .lds-dual-ring {
   display: inline-block;
   width: 1rem;
@@ -274,5 +218,61 @@ const sendForm = async() => {
   top: calc(50vh - 8vw)
 }
 
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 10px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 4px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 4px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 16px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 28px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(12px, 0);
+  }
 }
 </style>

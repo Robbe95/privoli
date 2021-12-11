@@ -38,7 +38,7 @@ export default defineConfig({
   shortcuts: {
     'btn': 'py-2 px-4 font-semibold rounded-xl shadow-md cursor-pointer',
     'btn-primary': 'text-white bg-primary hover:bg-opacity-30 border-2 border-transparent',
-    'btn-secondary': 'text-black border-primary border-2 hover:bg-opacity-30 bg-white',
+    'btn-secondary': 'text-black border-secondary border-2 hover:bg-opacity-30 bg-white',
     'tag': 'bg-primary bg-opacity-30 rounded-full px-4 py-1 max-w-max text-primary',
   },
 })

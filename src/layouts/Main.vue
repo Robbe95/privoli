@@ -1,8 +1,14 @@
 <template>
   <main class="overflow-hidden relative">
-    <div class="absolute top-0 left-0 w-screen bg-primary h-0vh press-top z-50" />
-    <div class="absolute bottom-0 left-0 w-screen bg-primary h-0vh press-bottom z-50" />
+    <div class="fixed top-0 left-0 w-screen bg-primary h-0vh press-top z-50" />
+    <div class="fixed bottom-0 left-0 w-screen bg-primary h-0vh press-bottom z-50" />
+    <Navigation />
+
     <router-view />
+    <div class=" px-10  md:px-20 xl:px-40 h-20 flex flex-row gap-4 mb-10 justify-end">
+      <img src="@/assets/images/logos/vlajo.png" alt="" class="h-full">
+      <img src="@/assets/images/logos/hasselt.png" alt="" class="h-40 -mt-10">
+    </div>
   </main>
 </template>
 

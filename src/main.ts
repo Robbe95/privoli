@@ -23,6 +23,10 @@ const i18n = createI18n({
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior() {
+    // always scroll to top
+    return { top: 0 }
+  },
 })
 
 const app = createApp(App)

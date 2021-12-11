@@ -1,7 +1,10 @@
 <template>
-  <div class="flex items-center justify-center">
-    <div ref="pixiRender" class="absolute top-0 left-0 w-50vw h-screen" />
+  <div class="flex items-center justify-center flex-col">
+    <div ref="pixiRender" class="absolute top-0 left-0 w-100vw h-screen" />
     <img ref="image" src="@/assets/images/thumbsup.png" class="h-20 opacity-0">
+    <div>
+      Score: {{ score }}
+    </div>
   </div>
 </template>
 
@@ -22,6 +25,7 @@ let player = null
 let dropTicker = null
 const score = ref(0)
 const image = ref()
+const speed = 10
 const moveObject = (e) => {
   const { x, y } = e.data.global
   if (x < (app.renderer.width - (player.width / 2)) && x > 0)
@@ -81,11 +85,15 @@ const dropItem = () => {
   item.zIndex = 1
   item.scale.set(0.1, 0.1)
   item.anchor.set(0.5, 1)
-
+  item.rotation = Math.floor(Math.random() * 360)
+  let dropSpeed = 8 * (score.value + 1)
   container.addChild(item)
   itemTicker.add((delta) => {
-    if (item.y < app.renderer.height + 50)
-      item.y += 10
+    if (item.y < app.renderer.height + 50) {
+      item.y += dropSpeed
+      item.rotation += 0.02
+      dropSpeed += 0.2
+    }
     if (item.y >= app.renderer.height + 50) {
       itemTicker.destroy()
       container.removeChild(item)
@@ -94,6 +102,7 @@ const dropItem = () => {
     if (catchItem(item, player)) {
       itemTicker.destroy()
       container.removeChild(item)
+
       score.value++
       if (score.value === 3) {
         congratulate()
