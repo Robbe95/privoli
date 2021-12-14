@@ -104,11 +104,10 @@ const dropItem = () => {
       container.removeChild(item)
 
       score.value++
-      if (score.value === 3) {
+      if (score.value === 3)
         congratulate()
-        dropTicker.destroy()
-        container.removeChild(player)
-      }
+        // dropTicker.destroy()
+        // container.removeChild(player)
     }
   })
   itemTicker.start()
@@ -146,7 +145,7 @@ const loadPixi = () => {
   dropTicker = new PIXI.Ticker()
   dropTicker.add((delta) => {
     seconds += 1 / 60
-    if (seconds >= 10) {
+    if (seconds >= 2) {
       seconds = 0
       dropItem()
     }
