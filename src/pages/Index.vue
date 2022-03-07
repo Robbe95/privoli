@@ -29,7 +29,7 @@
         <!-- <PixiGame /> -->
         <div class="product-info flex items-center justify-center items-center overflow-hidden w-full flex-col">
           <h1 class="font-bold text-4xl mb-6 text-secondary">
-            Provoli
+            Privoli
           </h1>
           <article class="max-w-2xl bg-primary p-4 rounded-xl shadow-secondary shadow-2xl text-white">
             De Privoli pers is een unieke drie-in-één-pers waarmee u zowel brikken, blikken en flessen kan

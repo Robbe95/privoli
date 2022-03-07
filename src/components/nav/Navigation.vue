@@ -93,7 +93,7 @@ gsap.registerPlugin(ScrollToPlugin)
 
 onMounted(() => {
   window.innerWidth < 1024 ? isMobile.value = true : isMobile.value = false
-  shown.value = !isMobile.value
+  shown.value = false
 })
 const route = useRoute()
 const transitionStore = useTransitionStore()
@@ -103,7 +103,7 @@ const changeRoute = (url) => {
   if (url !== route.path) {
     transitionStore.run = true
     setTimeout(() => {
-      if (isMobile.value) toggle()
+      shown.value = false
       router.push(url)
     }, 600)
   }
