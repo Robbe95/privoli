@@ -35,9 +35,7 @@
             De Privoli pers is een unieke drie-in-één-pers waarmee u zowel brikken, blikken en flessen kan
             persen. Daarnaast is er ook de optie om uw PMD-zak aan de pers te hangen waardoor het geperste
             brik, blik of fles direct in uw zak valt. Hebt u liever uw pers aan een muur? Dat kan want die
-
-            mogelijkheid bieden wij u aan. Hebt u de pers toch liever op het keukenaanrecht staan? Dat kan vast
-            en zeker ook door het strak design van de Privoli pers.
+            mogelijkheid bieden wij u aan.
           </article>
         </div>
         <div class="preorder">

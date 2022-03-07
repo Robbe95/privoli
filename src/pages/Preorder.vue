@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="!isSend" class="min-w-screen min-h-screen flex flex-col items-center justify-center  md:px-20 xl:px-40 overflow-hidden z-40">
+      <div v-if="!isSend" class="min-w-screen min-h-screen flex flex-col items-center justify-center mt-40  md:px-20 xl:px-40  z-40">
         <img
           class="flex-none hover:scale-110 transform transition cursor-pointer -mt-80 h-80 mb-10 hidden lg:flex"
           src="@/assets/images/logo.png"
@@ -11,24 +11,17 @@
             <h1 class="text-black text-2xl font-bold mb-2">
               Pre-order
             </h1>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:min-w-2xl">
-              <input v-model="firstName" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl" placeholder="Voornaam">
-              <input v-model="lastName" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl" placeholder="Achternaam">
-              <input v-model="email" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl w-full lg:col-span-2" placeholder="Email">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-2 gap-x-4 lg:min-w-2xl">
+              <Input v-model="firstName" class="" placeholder="Voornaam" label="Voornaam" />
+              <Input v-model="lastName" class="" placeholder="Achternaam" label="Achternaam" />
+              <Input v-model="email" class="" placeholder="Email" label="E-mailadres" />
+              <Input v-model="amount" class="" placeholder="Aantal" label="Aantal" />
+              <textarea v-model="extra" class="bg-white px-4 py-2 shadow-secondary shadow-2xl rounded-xl w-full lg:col-span-2 mt-4 min-h-40" placeholder="Andere info" />
+
               <div class="w-full flex justify-end lg:col-span-2">
-                <button class="btn btn-primary transition relative " :class="[!disabled ? 'opacity-100' : 'opacity-20 cursor-not-allowed']" :disabled="formLoading || disabled" @click="sendForm">
-                  <div :class="{'opacity-0' : formLoading}">
-                    Pre-order
-                  </div>
-                  <div
-                    :class="[formLoading ? 'opacity-100' : 'opacity-0']"
-                    class=" absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform z-20"
-                  >
-                    <div class="lds-ellipsis">
-                      <div /><div /><div /><div />
-                    </div>
-                  </div>
-                </button>
+                <Button :disabled="disabled" :loading="formLoading" :valid="!disabled" class="px-8" @click="sendForm">
+                  Pre-order
+                </Button>
               </div>
             </div>
           </div>
@@ -70,8 +63,18 @@ const isSend = ref(false)
 const firstName = ref('')
 const lastName = ref('')
 const email = ref('')
+const amount = ref(1)
+const extra = ref('')
+const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    )
+}
+
 const disabled = computed(() => {
-  return !(firstName.value && lastName.value && email.value)
+  return !(firstName.value && lastName.value && email.value && amount.value && amount.value > 0 && validateEmail(email.value))
 })
 
 const formLoading = ref(false)
@@ -81,6 +84,9 @@ const sendForm = async() => {
     firstName: firstName.value,
     lastName: lastName.value,
     email: email.value,
+    extra: extra.value,
+    amount: amount.value,
+
   }
 
   axios.defaults.baseURL = 'https://api.emailjs.com/api/v1.0/'
