@@ -8,7 +8,7 @@
         >
         <div class="bg-primary/10 p-10 rounded-xl w-full lg:w-auto">
           <div class="flex flex-col">
-            <div class="flex flex-row gap-4 justify-between">
+            <div class="flex flex-row gap-4 justify-between items-center">
               <h1 class="text-black text-2xl font-bold mb-2">
                 Pre-order
               </h1>
