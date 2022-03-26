@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Button: typeof import('./src/components/Button.vue')['default']
+    ImageGallery: typeof import('./src/components/ImageGallery.vue')['default']
     Input: typeof import('./src/components/Input.vue')['default']
     Navigation: typeof import('./src/components/nav/Navigation.vue')['default']
     PixiGame: typeof import('./src/components/PixiGame.vue')['default']

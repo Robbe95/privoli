@@ -8,9 +8,14 @@
         >
         <div class="bg-primary/10 p-10 rounded-xl w-full lg:w-auto">
           <div class="flex flex-col">
-            <h1 class="text-black text-2xl font-bold mb-2">
-              Pre-order
-            </h1>
+            <div class="flex flex-row gap-4 justify-between">
+              <h1 class="text-black text-2xl font-bold mb-2">
+                Pre-order
+              </h1>
+              <p class="text-black font-bold mb-2 opacity-50">
+                (49,99 euro)
+              </p>
+            </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-2 gap-x-4 lg:min-w-2xl">
               <Input v-model="firstName" class="" placeholder="Voornaam" label="Voornaam" />
               <Input v-model="lastName" class="" placeholder="Achternaam" label="Achternaam" />
